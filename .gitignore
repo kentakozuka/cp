@@ -1,0 +1,28 @@
+### C++ ###
+*.d
+*.slo
+*.lo
+*.o
+*.obj
+*.gch
+*.pch
+*.so
+*.dylib
+*.dll
+*.mod
+*.smod
+*.lai
+*.la
+*.a
+*.lib
+*.exe
+*.out
+*.app
+
+### macOS ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+main.cpp
+bk.cpp
