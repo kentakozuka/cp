@@ -30,7 +30,7 @@ using Graph = vector<vector<Edge>>;
 vector<ll> dijkstra(Graph G, ll s) {
   // 最短距離を初期化
   vector<ll> d(G.size());
-  fill(d.begin(), d.end(), INT_MAX);
+  fill(d.begin(), d.end(), LLONG_MAX);
   d[s] = 0;
   // 距離が小さい順に取り出せるようgreater<P>を指定
   // first: 最短距離, second: 頂点番号
