@@ -26,7 +26,7 @@ using Graph = vector<vector<Edge>>;
 // スタート地点から各ノードへの最短距離を返す
 // O(E*logN)
 // - 各辺のコストは非負の値(0以上)でなければならない
-// - 負の数が含まれてる場合はベルマン-フォード法などを使用する
+// - 負のコストが含まれてる場合はベルマン-フォード法などを使用する
 vector<ll> dijkstra(Graph G, ll s) {
   // 最短距離を初期化
   vector<ll> d(G.size());
@@ -47,6 +47,7 @@ vector<ll> dijkstra(Graph G, ll s) {
     }
     // 頂点nから出る辺eを走査
     for (Edge e : G[n]) {
+      // 移動した後のコストが小さいなら、頂点のコストを更新
       if (d[e.to] > d[n] + e.cost) {
         d[e.to] = d[n] + e.cost;
         q.push(pair<ll, ll>(d[e.to], e.to));
