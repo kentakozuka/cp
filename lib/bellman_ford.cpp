@@ -23,20 +23,30 @@ using Graph = vector<vector<Edge>>;
 
 // ベルマン・フォード法
 // O(EV)
-// スタート地点から各ノードへの最短距離を返す
+// スタート地点から各ノードへの最短(長)距離を返す
 // pair<vector<最短距離>, 負の閉路があるか>
-// - 辺の重みが負でも動きますが、非負ならDijkstra法を使った方が高速
+//
+// - 辺の重みが負でも動く
+// - すべての重みに-1をかけると最長距離を求められる
+// - 非負ならDijkstra法を使った方が高速
 // - 負の閉路があると正しい距離を求められないが、負の閉路があることを検出できる
 pair<vector<ll>, bool> bellman_ford(Graph G, ll s) {
   vector<ll> d(G.size());
   fill(d.begin(), d.end(), LLONG_MAX);
   d[s] = 0;
+  // ノード分ループ
   for (ll i = 0; i < G.size(); i++) {
+    // エッジ分ループ
     for (ll j = 0; j < G.size(); j++) {
       for (ll k = 0; k < G[j].size(); k++) {
         Edge e = G[j][k];
+        if (d[j] == LLONG_MAX) {
+          continue;
+        }
+        // 移動した後のコストが小さいなら、頂点のコストを更新
         if (d[e.to] > d[j] + e.cost) {
           d[e.to] = d[j] + e.cost;
+          // 頂点の数と同じ回数ループすると、負の閉路がある
           if (i == G.size() - 1) {
             return pair<vector<ll>, bool>(d, false);
           }
@@ -47,13 +57,12 @@ pair<vector<ll>, bool> bellman_ford(Graph G, ll s) {
   return pair<vector<ll>, bool>(d, true);
 }
 
+// verify: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B&lang=ja
 int main() {
   cout << fixed << setprecision(10);
 
-  ll V, E;
-  cin >> V >> E;
-  ll r;
-  cin >> r;
+  ll V, E, r;
+  cin >> V >> E >> r;
 
   Graph G(V);
 
@@ -67,10 +76,14 @@ int main() {
 
   auto ret = bellman_ford(G, r);
   if (!ret.second) {
-    cout << "negative loop" << endl;
-    return 1;
+    cout << "NEGATIVE CYCLE" << endl;
+    return 0;
   }
   for (ll i = 0; i < V; i++) {
-    cout << ret.first[i] << endl;
+    if (ret.first[i] == LLONG_MAX) {
+      cout << "INF" << endl;
+    } else {
+      cout << ret.first[i] << endl;
+    }
   }
 }
