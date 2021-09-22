@@ -29,15 +29,16 @@ int pivot(vector<int> &a, int i, int j) {
 }
 
 // O(j - i +1)
-int partition(vector<int> &a, int i, int j, int x) {
-  int l = i, r = j;
+// xを軸に左はx未満、右はx以上に分ける
+int partition(vector<int> &a, int left, int right, int x) {
+  int l = left, r = right;
   // 検索が交差するまで繰り返します
   while (l <= r) {
     // 軸要素以上のデータを探します
-    while (l <= j && a[l] < x)
+    while (l <= right && a[l] < x)
       l++;
     // 軸要素未満のデータを探します
-    while (r >= i && a[r] >= x)
+    while (r >= left && a[r] >= x)
       r--;
     if (l > r)
       break;
@@ -49,14 +50,16 @@ int partition(vector<int> &a, int i, int j, int x) {
 }
 
 // O(N*logN)
-void quick_sort(vector<int> &a, int i, int j) {
-  if (i == j)
+// - 外部メモリ不要
+// - 安定ソートではない
+void quick_sort(vector<int> &a, int left, int right) {
+  if (left == right)
     return;
-  int p = pivot(a, i, j);
+  int p = pivot(a, left, right);
   if (p != -1) {
-    int k = partition(a, i, j, a[p]);
-    quick_sort(a, i, k - 1);
-    quick_sort(a, k, j);
+    int k = partition(a, left, right, a[p]);
+    quick_sort(a, left, k - 1);
+    quick_sort(a, k, right);
   }
 }
 
@@ -87,6 +90,7 @@ void bubble_sort(vector<int> &a) {
 }
 
 // O(N^2)
+// - 安定ソート
 void insertion_sort(vector<int> &a) {
   for (int i = 1; i < a.size(); i++) {
     int k = a[i];
@@ -124,6 +128,10 @@ void merge(vector<int> &a, int left, int mid, int right) {
   }
 }
 
+// O(N*logN)
+// 分割統治法
+// - 外部メモリが必要(元の入力配列の 2 倍のメモリ消費)
+// - 安定ソート
 void merge_sort(vector<int> &a, int left, int right) {
   if (left < right) {
     int mid = (left + right) / 2;
