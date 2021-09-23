@@ -37,7 +37,7 @@ using ull = unsigned long long;
 
 const long long INF = 1LL << 60;
 const double PI = acos(-1);
-const int MOD = 1000000007;
+const ll MOD = 1e9 + 7;
 
 template <typename T> vector<T> make_vec(size_t n) { return vector<T>(n); }
 template <typename T, class... Args> auto make_vec(size_t n, Args... args) {
