@@ -3,11 +3,11 @@ FILE=./main.cpp
 
 .PHONY: compile
 compile: clean
-	g++ -std=c++17 $(FILE)
+	clang++ -std=c++17 $(FILE)
 
 .PHONY: run
 run: compile
-	./a.out
+	./a.out < input.txt
 
 .PHONY: clean
 clean:
