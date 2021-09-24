@@ -14,6 +14,8 @@
 #include <vector>
 using namespace std;
 
+const long long INF = 1LL << 60;
+
 using ll = long long;
 
 struct Edge {
@@ -21,24 +23,25 @@ struct Edge {
   ll cost;
 };
 using Graph = vector<vector<Edge>>;
+using P = pair<ll, ll>;
 
 // ダイクストラ
 // スタート地点から各ノードへの最短距離を返す
 // O(E*logN)
 // - 各辺のコストは非負の値(0以上)でなければならない
 // - 負のコストが含まれてる場合はベルマン-フォード法などを使用する
-vector<ll> dijkstra(Graph G, ll s) {
+vector<ll> dijkstra(Graph &G, ll s) {
   // 最短距離を初期化
-  vector<ll> d(G.size());
-  fill(d.begin(), d.end(), LLONG_MAX);
+  vector<ll> d(G.size(), INF);
+  // fill(d.begin(), d.end(), LLONG_MAX);
   d[s] = 0;
   // 距離が小さい順に取り出せるようgreater<P>を指定
   // first: 最短距離, second: 頂点番号
-  priority_queue<pair<ll, ll>, vector<pair<ll, ll>>, greater<pair<ll, ll>>> q;
-  q.push(pair<ll, ll>(0, s));
+  priority_queue<P, vector<P>, greater<P>> q;
+  q.push(P(0, s));
 
   while (!q.empty()) {
-    pair<ll, ll> p = q.top();
+    P p = q.top();
     q.pop();
     // 更新した頂点の中で距離が最小の頂点 n
     ll n = p.second;
@@ -46,11 +49,11 @@ vector<ll> dijkstra(Graph G, ll s) {
       continue;
     }
     // 頂点nから出る辺eを走査
-    for (Edge e : G[n]) {
+    for (auto e : G[n]) {
       // 移動した後のコストが小さいなら、頂点のコストを更新
-      if (d[e.to] > d[n] + e.cost) {
+      if (d[n] + e.cost < d[e.to]) {
         d[e.to] = d[n] + e.cost;
-        q.push(pair<ll, ll>(d[e.to], e.to));
+        q.push(P(d[e.to], e.to));
       }
     }
   }
