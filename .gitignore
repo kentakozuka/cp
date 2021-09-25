@@ -1,4 +1,4 @@
-### C++ ###
+### C++
 *.d
 *.slo
 *.lo
@@ -19,14 +19,15 @@
 *.out
 *.app
 
-### macOS ###
+### macOS
 .DS_Store
 .AppleDouble
 .LSOverride
 info.plist
 
+### Othres
 main.cpp
 bk.cpp
 input.txt
-
 atcoder/
+/bazel-*

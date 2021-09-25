@@ -1,3 +1,6 @@
+#ifndef PRIME_NUMBER_HPP
+#define PRIME_NUMBER_HPP 1
+
 #include <algorithm>
 #include <cassert>
 #include <climits>
@@ -48,8 +51,7 @@ vector<int> divisors(int x) {
 vector<pair<ll, ll>> prime_factorize(ll N) {
   vector<pair<ll, ll>> res;
   for (ll a = 2; a * a <= N; ++a) {
-    if (N % a != 0)
-      continue;
+    if (N % a != 0) continue;
     // 指数
     ll ex = 0;
     // 割れる限り割り続ける
@@ -61,26 +63,8 @@ vector<pair<ll, ll>> prime_factorize(ll N) {
     res.push_back({a, ex});
   }
   // 最後に残った数について
-  if (N != 1)
-    res.push_back({N, 1});
+  if (N != 1) res.push_back({N, 1});
   return res;
 }
 
-int main() {
-  cout << is_prime(13) << endl;
-  cout << is_prime(15) << endl;
-  vector<int> div = divisors(13);
-  cout << "{";
-  for (int i = 0; i < div.size(); i++) {
-    cout << div[i] << " ";
-  }
-  cout << "}" << endl;
-
-  auto ps = prime_factorize(48);
-  cout << "{";
-  for (int i = 0; i < ps.size(); i++) {
-    cout << ps[i].first << "^" << ps[i].second << " ";
-  }
-  cout << "}" << endl;
-  return 0;
-}
+#endif // PRIME_NUMBER_HPP
