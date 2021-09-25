@@ -28,6 +28,7 @@
         "deque": "cpp",
         "string": "cpp",
         "bit": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "bitset": "cpp"
     }
 }

@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <bitset>
 #include <cassert>
 #include <climits>
 #include <cmath>
@@ -39,14 +40,20 @@ const long long INF = 1LL << 60;
 const double PI = acos(-1);
 const ll MOD = 1e9 + 7;
 
-template <typename T> vector<T> make_vec(size_t n) { return vector<T>(n); }
+template <typename T> vector<T> make_vec(size_t n) {
+  return vector<T>(n);
+}
 template <typename T, class... Args> auto make_vec(size_t n, Args... args) {
   return vector<decltype(make_vec<T>(args...))>(n, make_vec<T>(args...));
 }
 
 // aをbで割る時の繰上げ,繰り下げ
-ll myceil(ll a, ll b) { return (a + (b - 1)) / b; }
-ll myfloor(ll a, ll b) { return a / b; }
+ll myceil(ll a, ll b) {
+  return (a + (b - 1)) / b;
+}
+ll myfloor(ll a, ll b) {
+  return a / b;
+}
 
 void Solve();
 
