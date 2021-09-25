@@ -8,7 +8,7 @@
             "program": "${fileDirname}/a.out",
             "args": [
                 "<",
-                "${fileDirname}/problem.in"
+                "${fileDirname}/input.txt"
             ],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
