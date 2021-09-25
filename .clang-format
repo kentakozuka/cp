@@ -1,2 +1,5 @@
+AllowShortIfStatementsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: None
+AllowShortLoopsOnASingleLine: false
 BasedOnStyle: LLVM
 ColumnLimit: 100
