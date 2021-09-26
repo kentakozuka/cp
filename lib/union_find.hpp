@@ -1,3 +1,6 @@
+#ifndef UNION_FIND_HPP
+#define UNION_FIND_HPP 1
+
 #include <algorithm>
 #include <cassert>
 #include <cmath>
@@ -35,8 +38,7 @@ struct UnionFind {
   // データxが属する木の根を返す
   // O(logN)
   int root(int x) {
-    if (par[x] == x)
-      return x;
+    if (par[x] == x) return x;
     return par[x] = root(par[x]);
   }
 
@@ -45,11 +47,9 @@ struct UnionFind {
     int rx = root(x);
     int ry = root(y);
     // xとyの根が同じ(=同じ木にある)時はそのまま
-    if (rx == ry)
-      return;
+    if (rx == ry) return;
     // 小を大にくっつける
-    if (sizes[rx] < sizes[ry])
-      swap(rx, ry);
+    if (sizes[rx] < sizes[ry]) swap(rx, ry);
     par[rx] = ry;
   }
 
@@ -61,29 +61,9 @@ struct UnionFind {
   }
 
   // 素集合のサイズ
-  int size(int x) { return sizes[root(x)]; }
+  int size(int x) {
+    return sizes[root(x)];
+  }
 };
 
-int main() {
-  int N, Q;
-  cin >> N >> Q;
-
-  UnionFind tree(N);
-
-  for (int i = 0; i < Q; i++) {
-    int p, x, y;
-    cin >> p >> x >> y;
-    if (p == 0) {
-      // xの木とyの木を併合する
-      tree.merge(x, y);
-    } else {
-      if (tree.same(x, y)) {
-        cout << "Yes" << endl;
-      } else {
-        cout << "No" << endl;
-      }
-    }
-  }
-
-  return 0;
-}
+#endif // UNION_FIND_HPP
