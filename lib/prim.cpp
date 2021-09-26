@@ -23,9 +23,6 @@ using Graph = vector<vector<Edge>>;
 // 最小全域木を求めるアルゴリズム
 // 計算量: O(ElogV)
 // 既に到達した頂点集合からまだ到達していない頂点集合への辺のうち、コストが最小のものを選んでいく
-//
-// - グラフが隣接リストで与えられる時はクラスカル法で実装しやすい
-// - 隣接行列で与えられる時はプリム法を用いたほうが実装しやすい
 Graph prim(Graph &G) {
   Graph ret(G.size());
   vector<bool> used(G.size(), false);
