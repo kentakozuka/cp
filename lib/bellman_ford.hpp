@@ -24,7 +24,7 @@ using Graph = vector<vector<Edge>>;
 // ベルマン・フォード法
 // O(EV)
 // スタート地点から各ノードへの最短(長)距離を返す
-// pair<vector<最短距離>, 負の閉路があるか>
+// pair<vector<最短距離>, 成功したか(負の閉路がないか)>
 //
 // - 辺の重みが負でも動く
 // - すべての重みに-1をかけると最長距離を求められる
@@ -55,35 +55,4 @@ pair<vector<ll>, bool> bellman_ford(Graph G, ll s) {
     }
   }
   return pair<vector<ll>, bool>(d, true);
-}
-
-// verify: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B&lang=ja
-int main() {
-  cout << fixed << setprecision(10);
-
-  ll V, E, r;
-  cin >> V >> E >> r;
-
-  Graph G(V);
-
-  // Create a graph.
-  for (ll i = 0; i < E; i++) {
-    ll s, t, c;
-    cin >> s >> t >> c;
-    Edge e = {t, c};
-    G[s].push_back(e);
-  }
-
-  auto ret = bellman_ford(G, r);
-  if (!ret.second) {
-    cout << "NEGATIVE CYCLE" << endl;
-    return 0;
-  }
-  for (ll i = 0; i < V; i++) {
-    if (ret.first[i] == LLONG_MAX) {
-      cout << "INF" << endl;
-    } else {
-      cout << ret.first[i] << endl;
-    }
-  }
 }
