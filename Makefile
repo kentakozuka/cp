@@ -11,7 +11,10 @@ arg: compile
 
 .PHONY: compile
 compile: clean
-	time /usr/local/bin/g++-11 -std=gnu++17 $(FILE)
+	/usr/local/bin/g++-11 \
+		-std=gnu++17 \
+		-D_GLIBCXX_DEBUG \
+		$(FILE)
 
 .PHONY: clean
 clean:
