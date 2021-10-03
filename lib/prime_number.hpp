@@ -1,18 +1,8 @@
 #ifndef PRIME_NUMBER_HPP
 #define PRIME_NUMBER_HPP 1
 
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <cmath>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 typedef long long ll;
 

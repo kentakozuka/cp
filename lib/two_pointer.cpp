@@ -1,15 +1,5 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <cmath>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 typedef long long ll;
 
@@ -54,8 +44,7 @@ void two_pointer() {
       // 条件を満たしているかどうかを判定する
       // 満たしている:    right を右にずらす
       // 満たしていない:  left を右にずらす
-      if (left <= right && !is_ok(left, right))
-        break;
+      if (left <= right && !is_ok(left, right)) break;
       right++;
       // Write add process.
       add(right);

@@ -1,16 +1,9 @@
-#include <algorithm>
-#include <climits>
-#include <cmath>
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 typedef long long ll;
+
+const long long INF = 1LL << 60;
 
 struct Edge {
   ll to;
@@ -22,7 +15,7 @@ using Graph = vector<vector<Edge>>;
 // グラフの全ての頂点の間の最短路を見つけるアルゴリズム
 // O(V^3)
 vector<vector<ll>> warshall_floyd(Graph G) {
-  vector<vector<ll>> d(G.size(), vector<ll>(G.size(), LLONG_MAX));
+  vector<vector<ll>> d(G.size(), vector<ll>(G.size(), INF));
   for (ll i = 0; i < G.size(); i++) {
     d[i][i] = 0;
     vector<Edge> edges = G[i];

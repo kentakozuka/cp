@@ -1,22 +1,12 @@
 #ifndef KRUSCAL_HPP
 #define KRUSCAL_HPP 1
 
-#include "lib/union_find.hpp"
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <cmath>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 typedef long long ll;
+
+#define REP(i, n) for (ll i = 0; i < ll(n); i++)
 
 struct Edge {
   int s, t, cost;
@@ -37,7 +27,7 @@ int kruskal(int v, vector<Edge> es) {
   sort(es.begin(), es.end(), comp);
   UnionFind uf(v);
   int res = 0;
-  for (int i = 0; i < es.size(); i++) {
+  REP(i, es.size()) {
     Edge e = es[i];
     if (!uf.same(e.s, e.t)) {
       uf.merge(e.s, e.t);

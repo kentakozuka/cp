@@ -1,17 +1,5 @@
-#include <algorithm>
-#include <cassert>
-#include <cmath>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <numeric>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <tuple>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 typedef long long ll;
 typedef long double ld;
@@ -21,10 +9,8 @@ int pivot(vector<int> &a, int i, int j) {
   int k = i + 1;
   while (k <= j && a[i] == a[k])
     k++;
-  if (k > j)
-    return -1;
-  if (a[i] >= a[k])
-    return i;
+  if (k > j) return -1;
+  if (a[i] >= a[k]) return i;
   return k;
 }
 
@@ -40,8 +26,7 @@ int partition(vector<int> &a, int left, int right, int x) {
     // 軸要素未満のデータを探します
     while (r >= left && a[r] >= x)
       r--;
-    if (l > r)
-      break;
+    if (l > r) break;
     swap(a[l], a[r]);
     l++;
     r--;
@@ -53,8 +38,7 @@ int partition(vector<int> &a, int left, int right, int x) {
 // - 外部メモリ不要
 // - 安定ソートではない
 void quick_sort(vector<int> &a, int left, int right) {
-  if (left == right)
-    return;
+  if (left == right) return;
   int p = pivot(a, left, right);
   if (p != -1) {
     int k = partition(a, left, right, a[p]);

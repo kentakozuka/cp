@@ -1,15 +1,5 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <cmath>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 typedef long long ll;
 
@@ -17,12 +7,9 @@ typedef long long ll;
 
 // 組み合わせ (combination) を求める
 ll nCr(ll n, ll r) {
-  if (r > n)
-    return 0;
-  if (r == 0 || n == r)
-    return 1;
-  if (r * 2 > n)
-    r = n - r;
+  if (r > n) return 0;
+  if (r == 0 || n == r) return 1;
+  if (r * 2 > n) r = n - r;
 
   ll res = n;
   for (ll i = 2; i <= r; i++) {
@@ -36,7 +23,9 @@ ll nCr(ll n, ll r) {
 // r個のものをn種類にわける
 //
 // ref. https://mathtrain.jp/tyohukuc
-ll nHr(ll n, ll r) { return nCr(n + r - 1, r); }
+ll nHr(ll n, ll r) {
+  return nCr(n + r - 1, r);
+}
 
 int main() {
   cin.tie(0);

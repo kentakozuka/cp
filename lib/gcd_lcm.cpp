@@ -1,15 +1,5 @@
-#include <algorithm>
-#include <cassert>
-#include <climits>
-#include <cmath>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 typedef long long ll;
 
@@ -31,7 +21,9 @@ ll gcd(ll a, ll b) {
 
 // 最小公倍数
 // Least Common Multiplier
-ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
+ll lcm(ll a, ll b) {
+  return a / gcd(a, b) * b;
+}
 
 // 拡張gcd: ax + by = gcd(a, b) の整数解 (x, y) を求める.
 // 返り値は gcd(a, b) の結果.

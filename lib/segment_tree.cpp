@@ -1,15 +1,5 @@
-#include <algorithm>
-#include <cassert>
-#include <cmath>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 using ll = long long;
 
@@ -41,11 +31,21 @@ struct SegmentTree {
       nodes[i] = f(nodes[left_child(i)], nodes[right_child(i)]);
   }
 
-  ll leef(ll k) { return k + (n - 1); }
-  ll last_parent() { return n - 2; }
-  ll parent(ll child) { return (child - 1) / 2; }
-  ll left_child(ll parent) { return parent * 2 + 1; }
-  ll right_child(ll parent) { return parent * 2 + 2; }
+  ll leef(ll k) {
+    return k + (n - 1);
+  }
+  ll last_parent() {
+    return n - 2;
+  }
+  ll parent(ll child) {
+    return (child - 1) / 2;
+  }
+  ll left_child(ll parent) {
+    return parent * 2 + 1;
+  }
+  ll right_child(ll parent) {
+    return parent * 2 + 2;
+  }
 
   // i番目(0-index)の値をaに変更
   void update(ll i, ll a) {
@@ -67,8 +67,7 @@ struct SegmentTree {
   // 最初は (a, b) で呼ぶ
   ll query(ll a, ll b, ll k = 0, ll l = 0, ll r = -1) {
     // 最初に呼び出されたときの[l, r)は [0, n)
-    if (r < 0)
-      r = n;
+    if (r < 0) r = n;
 
     // [a, b) と [l, r) が交差しなければ INF
     if (r <= a || b <= l) {

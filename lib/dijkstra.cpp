@@ -1,17 +1,5 @@
-#include <algorithm>
-#include <cassert>
-#include <cmath>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <numeric>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <tuple>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 const long long INF = 1LL << 60;
@@ -33,7 +21,7 @@ using P = pair<ll, ll>;
 vector<ll> dijkstra(Graph &G, ll s) {
   // 最短距離を初期化
   vector<ll> d(G.size(), INF);
-  // fill(d.begin(), d.end(), LLONG_MAX);
+  // fill(d.begin(), d.end(), INF);
   d[s] = 0;
   // 距離が小さい順に取り出せるようgreater<P>を指定
   // first: 最短距離, second: 頂点番号

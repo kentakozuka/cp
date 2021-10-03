@@ -1,10 +1,9 @@
 #ifndef POW_HPP
 #define POW_HPP 1
 
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
-
 using ll = long long;
 
 // 繰り返し二乗法

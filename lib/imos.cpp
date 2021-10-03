@@ -1,17 +1,5 @@
-#include <algorithm>
-#include <cassert>
-#include <cmath>
-#include <functional>
-#include <iomanip>
-#include <iostream>
-#include <map>
-#include <numeric>
-#include <queue>
-#include <set>
-#include <stack>
-#include <string>
-#include <tuple>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
 typedef long long ll;
 typedef long double ld;
@@ -46,8 +34,7 @@ int main() {
   vector<int> area(N, 0);
   for (int i = 0; i <= 1000; i++) {
     for (int j = 0; j <= 1000; j++) {
-      if (grid[i][j] >= 1)
-        area[grid[i][j] - 1] += 1;
+      if (grid[i][j] >= 1) area[grid[i][j] - 1] += 1;
     }
   }
   for (int i = 0; i < N; i++) {
