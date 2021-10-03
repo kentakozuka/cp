@@ -38,7 +38,7 @@ TEST(bellman_ford_3, BasicAssertions) {
   g[2].push_back(Edge{3, 2});
   auto ret = bellman_ford(g, 1);
   EXPECT_EQ(ret.second, true);
-  EXPECT_EQ(ret.first[0], LLONG_MAX);
+  EXPECT_EQ(ret.first[0], INF);
   EXPECT_EQ(ret.first[1], 0);
   EXPECT_EQ(ret.first[2], -5);
   EXPECT_EQ(ret.first[3], -3);
