@@ -1,9 +1,70 @@
 cc_test(
-  name = "lib_test",
+  name = "bellman_ford",
   size = "small",
-  srcs = glob(["*_test.cpp"]),
+  srcs = glob([
+    "bellman_ford_test.cpp",
+    ]),
   deps = [
-	  "@com_google_googletest//:gtest_main", 
-	  "//lib:lib",
-	  ],
+    "@com_google_googletest//:gtest_main", 
+    "//lib:bellman_ford",
+  ],
+)
+
+cc_test(
+  name = "mod",
+  size = "small",
+  srcs = glob([
+    "mod_test.cpp",
+    ]),
+  deps = [
+    "@com_google_googletest//:gtest_main", 
+    "//lib:mod",
+  ],
+)
+
+cc_test(
+  name = "pow",
+  size = "small",
+  srcs = glob([
+    "pow_test.cpp",
+    ]),
+  deps = [
+    "@com_google_googletest//:gtest_main", 
+    "//lib:pow",
+  ],
+)
+
+cc_test(
+  name = "prime_number",
+  size = "small",
+  srcs = glob([
+    "prime_number_test.cpp",
+    ]),
+  deps = [
+    "@com_google_googletest//:gtest_main", 
+    "//lib:prime_number",
+  ],
+)
+
+cc_test(
+  name = "union_find",
+  size = "small",
+  srcs = glob([
+    "union_find_test.cpp",
+    ]),
+  deps = [
+    "@com_google_googletest//:gtest_main", 
+    "//lib:union_find",
+  ],
+)
+
+cc_test(
+  name = "kruscal_test",
+  size = "small",
+  srcs = glob(["kruscal_test.cpp"]),
+  deps = [
+    "@com_google_googletest//:gtest_main", 
+    "//lib:kruscal",
+    "//lib:union_find",
+  ],
 )
