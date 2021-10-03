@@ -4,7 +4,6 @@
 TEST(UnionFind, BasicAssertions) {
   // https://atcoder.jp/contests/atc001/tasks/unionfind_a
   int N = 8;
-  int Q = 9;
   UnionFind uf(N);
   uf.merge(1, 2);
   uf.merge(3, 2);
