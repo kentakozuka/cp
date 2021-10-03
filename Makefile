@@ -11,7 +11,7 @@ arg: compile
 
 .PHONY: compile
 compile: clean
-	clang++ -std=c++17 $(FILE)
+	time /usr/local/bin/g++-11 -std=gnu++17 $(FILE)
 
 .PHONY: clean
 clean:
@@ -24,4 +24,10 @@ tmpl:
 
 .PHONY: test
 test:
-	bazelisk test --test_output=all //test:lib_test
+	BAZEL_USE_CPP_ONLY_TOOLCHAIN=1
+	BAZEL_CXXOPTS="-std=gnu++17"
+	bazelisk test \
+		--action_env \
+		CC=/usr/local/bin/g++-11 \
+		--test_output=all \
+		//test/...
