@@ -1,6 +1,7 @@
 #ifndef KRUSCAL_HPP
 #define KRUSCAL_HPP 1
 
+#include "lib/union_find.hpp"
 #include <bits/stdc++.h>
 
 using namespace std;
