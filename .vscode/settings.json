@@ -29,6 +29,8 @@
         "string": "cpp",
         "bit": "cpp",
         "iostream": "cpp",
-        "bitset": "cpp"
+        "bitset": "cpp",
+        "typeinfo": "cpp",
+        "random": "cpp"
     }
 }
