@@ -68,3 +68,23 @@ cc_test(
     "//lib:union_find",
   ],
 )
+
+cc_test(
+  name = "combination_test",
+  size = "small",
+  srcs = glob(["combination_test.cpp"]),
+  deps = [
+    "@com_google_googletest//:gtest_main", 
+    "//lib:combination",
+  ],
+)
+
+cc_test(
+  name = "segment_tree_test",
+  size = "small",
+  srcs = glob(["segment_tree_test.cpp"]),
+  deps = [
+    "@com_google_googletest//:gtest_main", 
+    "//lib:segment_tree",
+  ],
+)

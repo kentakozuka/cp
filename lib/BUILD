@@ -45,3 +45,19 @@ cc_library(
     ]),
     visibility = ["//visibility:public"],
 )
+
+cc_library(
+    name = "combination",
+    srcs = glob([
+        "combination.hpp",
+    ]),
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "segment_tree",
+    srcs = glob([
+        "segment_tree.hpp",
+    ]),
+    visibility = ["//visibility:public"],
+)
