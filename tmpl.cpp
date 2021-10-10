@@ -20,8 +20,8 @@ const double PI = acos(-1);
 const ll MOD = 1e9 + 7;
 // const ll MOD = 998244353;
 
-// 2次元vector: auto dp = make_vec<ll>(n + 1, 10);
-template <typename T> vector<T> make_vec(size_t n) { return vector<T>(n); }
+// make_vec<型>(1次元目のサイズ, 1次元目のサイズ, 初期値), 例: make_vec<int>(2, 3, 0);
+template <typename T> vector<T> make_vec(size_t n, T v) { return vector<T>(n, v); }
 template <typename T, class... Args> auto make_vec(size_t n, Args... args) { return vector<decltype(make_vec<T>(args...))>(n, make_vec<T>(args...)); }
 // aをbで割る時の繰上げ,繰り下げ
 ll myceil(ll a, ll b) { return (a + (b - 1)) / b; }
