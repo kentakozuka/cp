@@ -1,8 +1,6 @@
 #ifndef MOD_HPP
 #define MOD_HPP 1
 
-#include <bits/stdc++.h>
-
 using namespace std;
 
 typedef long long ll;

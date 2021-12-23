@@ -14,8 +14,9 @@ using Graph = vector<vector<Edge>>;
 using P = pair<ll, ll>;
 
 // ダイクストラ
+// グラフ
 // スタート地点から各ノードへの最短距離を返す
-// O(E*logN)
+// O((E+N)*logN)
 // - 各辺のコストは非負の値(0以上)でなければならない
 // - 負のコストが含まれてる場合はベルマン-フォード法などを使用する
 vector<ll> dijkstra(Graph &G, ll s) {

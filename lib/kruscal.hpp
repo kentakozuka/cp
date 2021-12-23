@@ -2,7 +2,7 @@
 #define KRUSCAL_HPP 1
 
 #include "lib/union_find.hpp"
-#include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 typedef long long ll;

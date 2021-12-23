@@ -1,8 +1,6 @@
 #ifndef POW_HPP
 #define POW_HPP 1
 
-#include <bits/stdc++.h>
-
 using namespace std;
 using ll = long long;
 

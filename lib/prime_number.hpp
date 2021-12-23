@@ -1,7 +1,7 @@
 #ifndef PRIME_NUMBER_HPP
 #define PRIME_NUMBER_HPP 1
 
-#include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 typedef long long ll;
