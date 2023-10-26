@@ -1,9 +1,10 @@
-# Union find
-# DSU(Disjoint Set Union)とも言われるらしい
-# https://pyteyon.hatenablog.com/entry/2019/03/11/200000
-
-
 class UnionFind:
+    """
+    Union find
+    DSU(Disjoint Set Union)とも言われるらしい
+    https://pyteyon.hatenablog.com/entry/2019/03/11/200000
+    """
+
     def __init__(self, N):
         # par[i]: iの親の番号
         # 例) par[3] = 2 (3の親が2)

@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "cp"
+version = "0.1.0"
+description = ""
+authors = ["Kenta Kozuka <kenta.kozuka@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.10.0"
+pytest = "^7.4.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
