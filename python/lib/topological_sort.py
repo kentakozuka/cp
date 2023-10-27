@@ -14,10 +14,14 @@ class Graph:
         self.adj[u].append(Edge(v))
 
 
-# BFSトポロジカルソート
-# O(E+V)
-# 「len(ret) == 頂点の数」なら閉路なし
 def topo_sort(G: Graph) -> List[int]:
+    """
+    BFSトポロジカルソート
+    O(E+V)
+    「len(ret) == 頂点の数」なら閉路なし
+    DAG(閉路のない有向グラフ)の辺が左から右に向くように，頂点を左から右に一列に並べる方法．
+    有向グラフをトポロジカルソートできなければ閉路がある
+    """
     n = len(G.adj)
     ret = []
 

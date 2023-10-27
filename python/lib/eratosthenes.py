@@ -1,10 +1,12 @@
 import math
 
 
-# エラトステネスの篩
-# Nまでの素数を列挙する.
-# O(N*log logN)
 def eratosthenes(N):
+    """
+    エラトステネスの篩
+    Nまでの素数を列挙する.
+    O(N*log logN)
+    """
     is_prime = [True] * (N + 1)
     P = []
     for i in range(2, N + 1):
