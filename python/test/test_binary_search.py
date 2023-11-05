@@ -4,14 +4,17 @@ from lib.binary_search import BinarySearch
 
 
 @pytest.mark.parametrize(
-    "input, output",
     [
-        (51, 3),
-        (1, 0),
-        (910, 9),
-        (52, 6),
-        (0, 0),
-        (911, 10),
+        "input",
+        "output",
+    ],
+    [
+        pytest.param(51, 3),
+        pytest.param(1, 0),
+        pytest.param(910, 9),
+        pytest.param(52, 6),
+        pytest.param(0, 0),
+        pytest.param(911, 10),
     ],
 )
 def test_is_prime(input, output):
