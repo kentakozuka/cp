@@ -6,21 +6,24 @@ class UnionFind:
     """
 
     def __init__(self, N):
-        # par[i]: iの親の番号
-        # 例) par[3] = 2 (3の親が2)
-        self.par = [i for i in range(N)]
+        # parent[i]: iの親の番号
+        self.parents = [i for i in range(N)]
         self.sizes = [1] * N
 
-    # データxが属する木の根を返す
-    # O(logN)
     def root(self, x):
-        if self.par[x] == x:
+        """
+        データxが属する木の根を返す
+        O(logN)
+        """
+        if self.parents[x] == x:
             return x
-        self.par[x] = self.root(self.par[x])
-        return self.par[x]
+        self.parents[x] = self.root(self.parents[x])
+        return self.parents[x]
 
-    # xとyの木を併合
     def merge(self, x, y):
+        """
+        xとyの木を併合
+        """
         rx = self.root(x)
         ry = self.root(y)
         # xとyの根が同じ(=同じ木にある)時はそのまま
@@ -29,13 +32,17 @@ class UnionFind:
         # 小を大にくっつける
         if self.sizes[rx] < self.sizes[ry]:
             rx, ry = ry, rx
-        self.par[ry] = rx
+        self.parents[ry] = rx
         self.sizes[rx] += self.sizes[ry]
 
-    # 2つのデータx, yが属する木が同じならtrueを返す
     def same(self, x, y):
+        """
+        2つのデータx, yが属する木が同じならtrueを返す
+        """
         return self.root(x) == self.root(y)
 
-    # 素集合のサイズ
     def size(self, x):
+        """
+        素集合のサイズ
+        """
         return self.sizes[self.root(x)]
