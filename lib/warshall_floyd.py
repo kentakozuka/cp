@@ -1,6 +1,3 @@
-from typing import List
-import sys
-
 INF = 1 << 60
 
 
@@ -10,7 +7,12 @@ class Edge:
         self.cost = cost
 
 
-def warshall_floyd(G: List[List[Edge]]) -> List[List[int]]:
+def warshall_floyd(G: list[list[Edge]]) -> list[list[int]]:
+    """
+    ワーシャルフロイド法
+    O(V^3)
+    全ての頂点間の最短距離を調べて経路の検出を行います
+    """
     d = [[INF] * len(G) for _ in range(len(G))]
     for i in range(len(G)):
         d[i][i] = 0
@@ -23,30 +25,3 @@ def warshall_floyd(G: List[List[Edge]]) -> List[List[int]]:
                 d[i][j] = min(d[i][j], d[i][k] + d[k][j])
 
     return d
-
-
-def main():
-    input = sys.stdin.readline  # 入力高速化のため
-    print("{}".format(0.1))
-    V, E = map(int, input().split())
-
-    G = [[] for _ in range(V)]
-
-    # Create a graph.
-    for i in range(E):
-        s, t, c = map(int, input().split())
-        e = Edge(t, c)
-        G[s].append(e)
-
-    d = warshall_floyd(G)
-    for i in range(V):
-        for j in range(V):
-            if d[i][j] == INF:
-                print("INF", end=" ")
-            else:
-                print(d[i][j], end=" ")
-        print()
-
-
-if __name__ == "__main__":
-    main()

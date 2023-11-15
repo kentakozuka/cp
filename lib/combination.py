@@ -1,6 +1,3 @@
-from typing import List
-
-
 # 組み合わせ(combination)を求める
 def nCr(n: int, r: int) -> int:
     if r > n:

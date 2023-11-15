@@ -1,8 +1,5 @@
-from typing import List
-
-
 class BinarySearch:
-    def __init__(self, list: List[int]):
+    def __init__(self, list: list[int]):
         self.list = list
 
     def isOK(self, index: int, key: int) -> bool:

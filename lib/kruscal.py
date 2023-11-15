@@ -1,4 +1,3 @@
-from typing import List
 from .union_find import UnionFind
 
 
@@ -13,7 +12,7 @@ def comp(e1: Edge, e2: Edge) -> bool:
     return e1.cost < e2.cost
 
 
-def kruskal(v: int, es: List[Edge]) -> int:
+def kruskal(v: int, es: list[Edge]) -> int:
     es.sort(key=comp)
     uf = UnionFind(v)
     res = 0

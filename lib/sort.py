@@ -1,7 +1,4 @@
-from typing import List
-
-
-def pivot(a: List[int], i: int, j: int) -> int:
+def pivot(a: list[int], i: int, j: int) -> int:
     k = i + 1
     while k <= j and a[i] == a[k]:
         k += 1
@@ -12,7 +9,7 @@ def pivot(a: List[int], i: int, j: int) -> int:
     return k
 
 
-def partition(a: List[int], left: int, right: int, x: int) -> int:
+def partition(a: list[int], left: int, right: int, x: int) -> int:
     l = left
     r = right
     while l <= r:
@@ -28,7 +25,7 @@ def partition(a: List[int], left: int, right: int, x: int) -> int:
     return l
 
 
-def quick_sort(a: List[int], left: int, right: int) -> None:
+def quick_sort(a: list[int], left: int, right: int) -> None:
     if left == right:
         return
     p = pivot(a, left, right)
@@ -38,7 +35,7 @@ def quick_sort(a: List[int], left: int, right: int) -> None:
         quick_sort(a, k, right)
 
 
-def selection_sort(a: List[int]) -> None:
+def selection_sort(a: list[int]) -> None:
     for i in range(len(a) - 1):
         m = i
         for j in range(i + 1, len(a)):
@@ -47,14 +44,14 @@ def selection_sort(a: List[int]) -> None:
         a[i], a[m] = a[m], a[i]
 
 
-def bubble_sort(a: List[int]) -> None:
+def bubble_sort(a: list[int]) -> None:
     for i in range(len(a) - 1):
         for j in range(len(a) - 1, i, -1):
             if a[j] < a[j - 1]:
                 a[j], a[j - 1] = a[j - 1], a[j]
 
 
-def insertion_sort(a: List[int]) -> None:
+def insertion_sort(a: list[int]) -> None:
     for i in range(1, len(a)):
         k = a[i]
         j = i - 1
@@ -64,7 +61,7 @@ def insertion_sort(a: List[int]) -> None:
         a[j + 1] = k
 
 
-def merge(a: List[int], left: int, mid: int, right: int) -> None:
+def merge(a: list[int], left: int, mid: int, right: int) -> None:
     L = a[left : mid + 1]
     R = a[mid + 1 : right + 1]
     L.append(float("inf"))
@@ -79,7 +76,7 @@ def merge(a: List[int], left: int, mid: int, right: int) -> None:
             r += 1
 
 
-def merge_sort(a: List[int], left: int, right: int) -> None:
+def merge_sort(a: list[int], left: int, right: int) -> None:
     if left < right:
         mid = (left + right) // 2
         merge_sort(a, left, mid)

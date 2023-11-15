@@ -1,7 +1,4 @@
-from typing import List
-
-
-def median(nums: List[int]) -> float:
+def median(nums: list[int]) -> float:
     size = len(nums)
     if size == 0:
         return 0

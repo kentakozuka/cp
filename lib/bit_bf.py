@@ -13,12 +13,6 @@ for p in product((0, 1), repeat=n):
     print("")
 
 for bit in range(1 << n):
-    """
-    bit全探索
-    O(N*2^N)
-    N個のものから、いくつか選ぶ方法を全列挙して調べ上げる手法
-    (1<<N)は2^Nの意味
-    """
     S = []
     for i in range(n):
         # 列挙に i が含まれるか

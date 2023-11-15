@@ -1,13 +1,10 @@
-from typing import List, Tuple
-
-
 class Edge:
     def __init__(self, to: int, cost: int = 1) -> None:
         self.to = to
         self.cost = cost
 
 
-def dfs(G: List[List[Edge]], idx: int, parent: int) -> Tuple[int, int]:
+def dfs(G: list[list[Edge]], idx: int, parent: int) -> tuple[int, int]:
     """
     再帰DFS
     idxのノードから最も遠い（コストが高い）ノードとそのコストを返す
@@ -23,7 +20,7 @@ def dfs(G: List[List[Edge]], idx: int, parent: int) -> Tuple[int, int]:
     return ret
 
 
-def tree_diameter(G: List[List[Edge]]) -> int:
+def tree_diameter(G: list[list[Edge]]) -> int:
     """
     木の直径
     O(N)

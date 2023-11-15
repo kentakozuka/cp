@@ -1,8 +1,7 @@
-from typing import List
 import pytest
 from lib.tree_diameter import Edge, tree_diameter
 
-g: List[List[Edge]] = [
+g: list[list[Edge]] = [
     [Edge(1, 1), Edge(2, 1)],
     [Edge(0, 1), Edge(3, 1)],
     [Edge(0, 1), Edge(6, 1)],

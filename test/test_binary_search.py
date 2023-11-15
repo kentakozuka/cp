@@ -1,4 +1,3 @@
-from typing import List
 import pytest
 from lib.binary_search import BinarySearch
 
@@ -18,7 +17,7 @@ from lib.binary_search import BinarySearch
     ],
 )
 def test_is_prime(input, output):
-    list: List[int] = [1, 14, 32, 51, 51, 51, 243, 419, 750, 910]
-    bs = BinarySearch(list)
+    li = [1, 14, 32, 51, 51, 51, 243, 419, 750, 910]
+    bs = BinarySearch(li)
     actual = bs.binary_search(input)
     assert actual == output

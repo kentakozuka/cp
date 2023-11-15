@@ -1,9 +1,8 @@
 import heapq
-from typing import List, Tuple
 
 
 # 隣接リストによるグラフ表現
-Graph = List[List[Tuple[int, int]]]
+Graph = list[list[tuple[int, int]]]
 
 
 def prim(G: Graph) -> Graph:

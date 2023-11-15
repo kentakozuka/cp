@@ -1,6 +1,3 @@
-from typing import List
-
-
 class Edge:
     def __init__(self, to: int):
         self.to = to
@@ -14,7 +11,7 @@ class Graph:
         self.adj[u].append(Edge(v))
 
 
-def topo_sort(G: Graph) -> List[int]:
+def topo_sort(G: Graph) -> list[int]:
     """
     BFSトポロジカルソート
     O(E+V)

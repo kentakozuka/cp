@@ -1,8 +1,5 @@
-from typing import List, Tuple
-
-
 # ランレングス圧縮
-def rl_encode(s: str) -> List[Tuple[str, int]]:
+def rl_encode(s: str) -> list[tuple[str, int]]:
     n = len(s)
     ret = []
     i = 0
@@ -18,7 +15,7 @@ def rl_encode(s: str) -> List[Tuple[str, int]]:
 
 
 # ランレングス圧縮の復元を行う
-def decode(code: List[Tuple[str, int]]) -> str:
+def decode(code: list[tuple[str, int]]) -> str:
     ret = ""
     for p in code:
         for i in range(p[1]):
