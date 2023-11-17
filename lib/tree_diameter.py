@@ -8,6 +8,7 @@ def dfs(G: list[list[Edge]], idx: int, parent: int) -> tuple[int, int]:
     """
     再帰DFS
     idxのノードから最も遠い（コストが高い）ノードとそのコストを返す
+    TODO: キューを使う場合も書く
     """
     ret = (idx, 0)
     for e in G[idx]:
